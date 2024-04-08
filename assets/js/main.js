@@ -65,3 +65,34 @@ document.addEventListener('DOMContentLoaded', function() {
   // Setup toggle functionality for all containers on the page
   document.querySelectorAll('.toggle-container').forEach(setupToggleForContainer);
 });
+
+
+ 
+
+
+document.addEventListener("alpine:init", () => {
+  Alpine.data('linkHandler', (options = {}) => ({
+      ritesOfPassage: false,
+      australianTattooExpo: false,
+      // Use options for custom behavior
+      determineLink() {
+          if (this.ritesOfPassage && this.australianTattooExpo) {
+              return options.bothLink || "javascript:;";
+          } else if (this.ritesOfPassage) {
+              return options.ropLink || "javascript:;";
+          } else if (this.australianTattooExpo) {
+              return options.ateLink || "javascript:;";
+          } else {
+              return "javascript:;";
+          }
+      },
+      isAnyChecked() {
+        return this.ritesOfPassage || this.australianTattooExpo;
+      },
+      init() {
+          // Initialization logic here
+      }
+  }));
+});
+
+ 

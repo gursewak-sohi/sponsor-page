@@ -12,12 +12,16 @@
 <body class="antialiased bg-sky-50 text-gray-950 text-sm md:text-base">
    
     <section class="container py-5 md:py-10">
-        <div class="flex items-center justify-between flex-col md:flex-row gap-2  pb-5 border-b border-gray-200 mb-8">
-                <div class="flex flex-col justify-center text-center items-center">
-                    <div class="mb-5 flex items-center gap-8">
+        <div class="flex flex-col md:flex-row items-center gap-5 md:gap-10 mb-4 md:mb-8">
+                <div class="flex flex-row md:flex-col justify-center text-center items-center flex-shrink-0 gap-4">
+                    <a target="_blank" href="https://www.ritesofpassagefestival.com" class="bg-white p-4 rounded-md md:rounded-3xl border border-gray-200/70 flex flex-col items-center gap-2 duration-200 hover:shadow-lg hover:border-white">
                         <img class="w-32 md:w-44" src="assets/images/ROP2024Logo.png" alt="logo"/>
-                        <img class="w-32 md:w-44" src="assets/images/ATE24_ChromeStacked.png" alt="logo"/>
-                    </div>
+                    </a>
+                    <a target="_blank" href="https://www.tattooexpo.com.au" class="bg-white p-4 rounded-md md:rounded-3xl border border-gray-200/70 flex flex-col items-center gap-2 duration-200 hover:shadow-lg hover:border-white">
+                        <img class="w-32 md:w-44" src="assets/images/ATE24_SimpleStacked.png" alt="logo"/>
+                    </a>
+                </div>
+                <div>
                     <h1 class="text-lg md:text-4xl font-extrabold mb-2 md:mb-4">Australian Tattoo Events Growth Packages
                     </h1>
                     <p class="mb-2">Welcome to Australian Tattoo Events, the longest running and largest Tattoo event Company in the Southern hemisphere, including the renowned Australian Tattoo Expo and the Rites of Passage Tattoo Festival.
@@ -26,11 +30,6 @@
                     </p>
                     <p class="mb-2">Welcome to our exclusive crafted sponsorship opportunities, designed to link your brand with a passionate and varied audience, offering unmatched visibility and interaction.</p>
                 </div>
-            
-            <!-- <a class="text-sm md:text-base font-bold flex items-center gap-1 md:gap-2 text-sky-500" href="javascript:;">
-                <span>←</span>
-                <span class="underline">Back to previous step</span>
-            </a> -->
         </div>
         <!-- <div class="py-4 flex">
             <div class="md:ml-auto flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
@@ -135,11 +134,22 @@
                         </button>
                     </div>
                 </div>
-                <div class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
+                <div x-data="linkHandler({ ropLink: 'https://cmmn.typeform.com/to/ZFSh6S4H', ateLink: 'https://cmmn.typeform.com/to/UsrToDj9', bothLink: 'https://cmmn.typeform.com/to/eI3qFk6M' })" x-init="init" class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
                     <div class="font-bold text-2xl md:text-3xl">AU$ 25,000</div>
                     <div class="mb-4 md:mb-8">per event</div>
+
+                    <div class="flex flex-col items-start mb-5 md:mb-8 text-sm md:text-lg font-medium gap-1">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="ritesOfPassage" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Rites of Passage
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="australianTattooExpo" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Australian Tattoo Expo
+                        </label>
+                    </div>
                     <div class="flex flex-col gap-3 md:gap-4 w-full items-center">
-                        <button class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</button>
+                        <a target="_blank" :href="determineLink()" :class="{'pointer-events-none opacity-50': !isAnyChecked()}" class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</a>
                     </div>
                 </div>
             </li>
@@ -210,11 +220,22 @@
                         </button>
                     </div>
                 </div>
-                <div class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
+                <div x-data="linkHandler({ ropLink: 'https://cmmn.typeform.com/to/okFNbMPe', ateLink: 'https://cmmn.typeform.com/to/oexbzpcL', bothLink: 'https://cmmn.typeform.com/to/mddlY0AU' })" x-init="init" class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
                     <div class="font-bold text-2xl md:text-3xl">AU$ 10,000</div>
                     <div class="mb-4 md:mb-8">per event</div>
+
+                    <div class="flex flex-col items-start mb-5 md:mb-8 text-sm md:text-lg font-medium gap-1">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="ritesOfPassage" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Rites of Passage
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="australianTattooExpo" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Australian Tattoo Expo
+                        </label>
+                    </div>
                     <div class="flex flex-col gap-3 md:gap-4 w-full items-center">
-                        <button class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</button>
+                        <a target="_blank" :href="determineLink()" :class="{'pointer-events-none opacity-50': !isAnyChecked()}" class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</a>
                     </div>
                 </div>
             </li>
@@ -294,17 +315,28 @@
                         </button>
                     </div>
                 </div>
-                <div class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
+                <div x-data="linkHandler({ ropLink: 'https://cmmn.typeform.com/to/F8nZwoFz', ateLink: 'https://cmmn.typeform.com/to/teBU2fN6', bothLink: 'https://cmmn.typeform.com/to/Dzua6heS' })" x-init="init" class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
                     <div class="font-bold text-2xl md:text-3xl">AU$ 7,500</div>
                     <div class="mb-4 md:mb-8">per event</div>
+
+                    <div class="flex flex-col items-start mb-5 md:mb-8 text-sm md:text-lg font-medium gap-1">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="ritesOfPassage" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Rites of Passage
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="australianTattooExpo" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Australian Tattoo Expo
+                        </label>
+                    </div>
                     <div class="flex flex-col gap-3 md:gap-4 w-full items-center">
-                        <button class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply now</button>
+                        <a target="_blank" :href="determineLink()" :class="{'pointer-events-none opacity-50': !isAnyChecked()}" class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</a>
                     </div>
                 </div>
             </li>
             <li class="bg-white border border-gray-200/70 rounded-xl md:rounded-3xl flex flex-wrap xl:flex-nowrap justify-center md:justify-start overflow-hidden">
                 <div class="md:w-80 md:h-80 w-52 h-52 flex-shrink-0 order-1 bg-gray-100">
-                    <img class="w-full h-full object-cover" src="assets/images/.webp" alt="Information Booth Sponsor"/>
+                    <img class="w-full h-full object-cover" src="assets/images/ATE24_SponsorshipTiles_Info.jpg" alt="Information Booth Sponsor"/>
                 </div>
                 <div class="px-4 md:px-8 py-4 flex flex-col flex-grow order-3 xl:order-2">
                     <div class="flex items-start md:items-center justify-between flex-col md:flex-row gap-2 ">
@@ -330,12 +362,22 @@
                     </ul>
                     
                 </div>
-                <div class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
-                   
+                <div x-data="linkHandler({ ropLink: 'https://cmmn.typeform.com/to/JZQ5uZZU', ateLink: 'https://cmmn.typeform.com/to/blgVSoit', bothLink: 'https://cmmn.typeform.com/to/EQ9qVUce' })" x-init="init" class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
                     <div class="font-bold text-2xl md:text-3xl">AU$ 5,000</div>
                     <div class="mb-4 md:mb-8">per event - plus signage cost</div>
+
+                    <div class="flex flex-col items-start mb-5 md:mb-8 text-sm md:text-lg font-medium gap-1">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="ritesOfPassage" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Rites of Passage
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="australianTattooExpo" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Australian Tattoo Expo
+                        </label>
+                    </div>
                     <div class="flex flex-col gap-3 md:gap-4 w-full items-center">
-                        <button class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</button>
+                        <a target="_blank" :href="determineLink()" :class="{'pointer-events-none opacity-50': !isAnyChecked()}" class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</a>
                     </div>
                 </div>
             </li>
@@ -413,11 +455,22 @@
                         </button>
                     </div>
                 </div>
-                <div class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
+                <div x-data="linkHandler({ ropLink: 'https://cmmn.typeform.com/to/UGPQgbhq', ateLink: 'https://cmmn.typeform.com/to/hnOJ4pe9', bothLink: 'https://cmmn.typeform.com/to/wLJ6v7V9' })" x-init="init" class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
                     <div class="font-bold text-2xl md:text-3xl">AU$ 5,500</div>
                     <div class="mb-4 md:mb-8">per event</div>
+
+                    <div class="flex flex-col items-start mb-5 md:mb-8 text-sm md:text-lg font-medium gap-1">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="ritesOfPassage" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Rites of Passage
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="australianTattooExpo" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Australian Tattoo Expo
+                        </label>
+                    </div>
                     <div class="flex flex-col gap-3 md:gap-4 w-full items-center">
-                        <button class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</button>
+                        <a target="_blank" :href="determineLink()" :class="{'pointer-events-none opacity-50': !isAnyChecked()}" class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</a>
                     </div>
                 </div>
             </li>
@@ -467,11 +520,22 @@
                         </button>
                     </div>
                 </div>
-                <div class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
+                <div x-data="linkHandler({ ropLink: 'https://cmmn.typeform.com/to/TFtYpH0G', ateLink: 'https://cmmn.typeform.com/to/NAV5E6Zd', bothLink: 'https://cmmn.typeform.com/to/sR21ac0w' })" x-init="init" class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
                     <div class="font-bold text-2xl md:text-3xl">AU$ 7,500</div>
                     <div class="mb-4 md:mb-8">per event</div>
+
+                    <div class="flex flex-col items-start mb-5 md:mb-8 text-sm md:text-lg font-medium gap-1">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="ritesOfPassage" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Rites of Passage
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="australianTattooExpo" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Australian Tattoo Expo
+                        </label>
+                    </div>
                     <div class="flex flex-col gap-3 md:gap-4 w-full items-center">
-                        <button class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</button>
+                        <a target="_blank" :href="determineLink()" :class="{'pointer-events-none opacity-50': !isAnyChecked()}" class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</a>
                     </div>
                 </div>
             </li>
@@ -535,11 +599,22 @@
                         </button>
                     </div>
                 </div>
-                <div class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
+                <div x-data="linkHandler({ ropLink: 'https://cmmn.typeform.com/to/IdlxUybH', ateLink: 'https://cmmn.typeform.com/to/SzkmaT2w', bothLink: 'https://cmmn.typeform.com/to/kPzRls1w' })" x-init="init" class="flex-grow min-w-80 xl:w-96 px-4 pt-4 pb-0 md:p-8 flex flex-col text-center items-center flex-shrink-0 xl:border-l border-gray-200/70 order-2 xl:order-3">
                     <div class="font-bold text-2xl md:text-3xl">AU$ 5,000</div>
                     <div class="mb-4 md:mb-8">per event</div>
+
+                    <div class="flex flex-col items-start mb-5 md:mb-8 text-sm md:text-lg font-medium gap-1">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="ritesOfPassage" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Rites of Passage
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input x-model="australianTattooExpo" class="text-sky-500 focus:ring-0 border-gray-300/70" type="checkbox">
+                            Australian Tattoo Expo
+                        </label>
+                    </div>
                     <div class="flex flex-col gap-3 md:gap-4 w-full items-center">
-                        <button class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</button>
+                        <a target="_blank" :href="determineLink()" :class="{'pointer-events-none opacity-50': !isAnyChecked()}" class="uppercase max-w-80 w-full tracking-wide text-center font-bold bg-gradient-to-r from-amber-400 to-yellow-300 px-8 py-4 text-base md:text-lg rounded-xl">Apply Now</a>
                     </div>
                 </div>
             </li>
@@ -600,7 +675,7 @@
 
             <li class="bg-white border border-gray-200/70 rounded-xl md:rounded-3xl flex flex-wrap xl:flex-nowrap justify-center md:justify-start overflow-hidden">
                 <div class="md:w-80 md:h-80 w-52 h-52 flex-shrink-0 order-1 bg-gray-100">
-                    <img class="w-full h-full object-cover" src="assets/images/.jpg" alt="Tattoo Studio Growth Pack"/>
+                    <img class="w-full h-full object-cover" src="assets/images/ATE24_SponsorshipTiles_StudioGrowth.jpg" alt="Tattoo Studio Growth Pack"/>
                 </div>
                 <div class="px-4 md:px-8 py-4 flex flex-col flex-grow order-3 xl:order-2">
                     <div class="flex items-start md:items-center justify-between flex-col md:flex-row gap-2 ">
@@ -652,7 +727,7 @@
 
             <li class="bg-white border border-gray-200/70 rounded-xl md:rounded-3xl flex flex-wrap xl:flex-nowrap justify-center md:justify-start overflow-hidden">
                 <div class="md:w-80 md:h-80 w-52 h-52 flex-shrink-0 order-1 bg-gray-100">
-                    <img class="w-full h-full object-cover" src="assets/images/.webp" alt="Merch Sponsor"/>
+                    <img class="w-full h-full object-cover" src="assets/images/ATE24_SponsorshipTiles_MerchSponsor.jpg" alt="Merch Sponsor"/>
                 </div>
                 <div class="px-4 md:px-8 py-4 flex flex-col flex-grow order-3 xl:order-2">
                     <div class="flex items-start md:items-center justify-between flex-col md:flex-row gap-2 ">
@@ -737,7 +812,7 @@
 
             <li class="bg-white border border-gray-200/70 rounded-xl md:rounded-3xl flex flex-wrap xl:flex-nowrap justify-center md:justify-start overflow-hidden">
                 <div class="md:w-80 md:h-80 w-52 h-52 flex-shrink-0 order-1 bg-gray-100">
-                    <img class="w-full h-full object-cover" src="assets/images/.jpg" alt="Lanyard Sponsor"/>
+                    <img class="w-full h-full object-cover" src="assets/images/ATE24_SponsorshipTiles_Software.jpg" alt="Tattoo Software Sponsor"/>
                 </div>
                 <div class="px-4 md:px-8 py-4 flex flex-col flex-grow order-3 xl:order-2 toggle-container">
                     <div class="flex items-start md:items-center justify-between flex-col md:flex-row gap-2 ">
@@ -883,7 +958,7 @@
 
             <li class="bg-white border border-gray-200/70 rounded-xl md:rounded-3xl flex flex-wrap xl:flex-nowrap justify-center md:justify-start overflow-hidden">
                 <div class="md:w-80 md:h-80 w-52 h-52 flex-shrink-0 order-1 bg-gray-100">
-                    <img class="w-full h-full object-cover" src="assets/images/.webp" alt="Tattoo Artist Sticker Producer Sponsor"/>
+                    <img class="w-full h-full object-cover" src="assets/images/ATE24_SponsorshipTiles_Stickers.jpg" alt="Tattoo Artist Sticker Producer Sponsor"/>
                 </div>
                 <div class="px-4 md:px-8 py-4 flex flex-col flex-grow toggle-container order-3 xl:order-2">
                     <div class="flex items-start md:items-center justify-between flex-col md:flex-row gap-2 ">
@@ -1186,11 +1261,11 @@
         
             <li class="bg-white border border-gray-200/70 rounded-xl md:rounded-3xl flex flex-wrap xl:flex-nowrap justify-center md:justify-start overflow-hidden">
                 <div class="md:w-80 md:h-80 w-52 h-52 flex-shrink-0 order-1 bg-gray-100">
-                    <img class="w-full h-full object-cover" src="assets/images/.jpg" alt="Tattoo product Sponsor"/>
+                    <img class="w-full h-full object-cover" src="assets/images/ATE24_SponsorshipTiles_ProductSponsor.jpg" alt="Tattoo product Sponsor"/>
                 </div>
                 <div class="px-4 md:px-8 py-4 flex flex-col flex-grow order-3 xl:order-2">
                     <div class="flex items-start md:items-center justify-between flex-col md:flex-row gap-2 ">
-                        <h2 class="text-2xl md:text-3xl font-bold">Tattoo product Sponsor</h2>
+                        <h2 class="text-2xl md:text-3xl font-bold">Tattoo Product Sponsor</h2>
                         <div class="border-2 border-sky-500 font-semibold px-3 py-1 rounded-3xl whitespace-nowrap">3 remaining</div>
                     </div>
                     <p class="mt-3">Showcase your brand or product to the heart of the Australian tattoo industry, ensuring direct engagement with Artists and Studios</p>
@@ -1232,6 +1307,9 @@
     
 </body>
 <script src="assets/js/main.js"></script>
+
+ <!-- Apline JS -->
+ <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 
 
