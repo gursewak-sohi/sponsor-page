@@ -1282,6 +1282,10 @@ select {
   height: 100%;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .w-32 {
   width: 8rem;
 }
@@ -1308,6 +1312,18 @@ select {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[90\%\] {
+  width: 90%;
+}
+
+.w-\[80\%\] {
+  width: 80%;
+}
+
+.w-4\/5 {
+  width: 80%;
 }
 
 .min-w-80 {
